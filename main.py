@@ -18,12 +18,18 @@ from discord import Embed
 from discord.utils import get
 
 # Variables 
-  
-@bot.command()
-async def Hi(ctx):
-  await ctx.send("Hi!")
 
 version = "1.0.0"
 username = "bot"
 prefix = "!"
-token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GgBiFf.6XuM_MP9OtQ7qXjhyN79kLK-cyV0pKxDpT3djQ"
+token = "token"
+
+bot.remove_command('help')
+
+# Commands
+
+@bot.command()
+async def help(ctx):
+  await ctx.send("loading help..")
+
+bot.run(token)
