@@ -17,14 +17,15 @@ from discord.ext.commands import Bot, has_permissions
 from discord import Embed
 from discord.utils import get
 
-bot = commands.Bot(command_prefix=f"{prefix}", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
-
 # Variables 
 
 version = "1.0.0"
 username = "bot"
 prefix = "!"
 token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GHlGnk.vS5HIH4rthIXfrRVsrQpy2y04egGpipGjAjAFs"
+
+bot = commands.Bot(command_prefix="!", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
+
 bot.remove_command('help')
 
 # Start up
