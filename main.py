@@ -1,5 +1,3 @@
-# REFRESH BEFORE EDITING!!!
-
 # Imports
 
 import discord
@@ -20,8 +18,12 @@ from discord import Embed
 from discord.utils import get
 
 # Variables 
+  
+@bot.command()
+async def Hi(ctx):
+  await ctx.send("Hi!")
 
 version = "1.0.0"
 username = "bot"
 prefix = "!"
-token = "token"
+token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GgBiFf.6XuM_MP9OtQ7qXjhyN79kLK-cyV0pKxDpT3djQ"
