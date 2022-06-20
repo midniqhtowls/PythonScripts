@@ -17,6 +17,8 @@ from discord.ext.commands import Bot, has_permissions
 from discord import Embed
 from discord.utils import get
 
+bot = commands.Bot(command_prefix=f"{prefix}", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
+
 # Variables 
 
 version = "1.0.0"
@@ -27,7 +29,6 @@ bot.remove_command('help')
 
 # Start up
 
-bot = commands.Bot(command_prefix=f"{prefix}", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
 @bot.event
 async def on_ready():
     print(f"logged in as {bot.user} [{bot.user.id}]")
