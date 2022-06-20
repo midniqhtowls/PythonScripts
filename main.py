@@ -23,8 +23,17 @@ version = "1.0.0"
 username = "bot"
 prefix = "!"
 token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GHlGnk.vS5HIH4rthIXfrRVsrQpy2y04egGpipGjAjAFs"
-
 bot.remove_command('help')
+
+# Start up
+
+bot = commands.Bot(command_prefix=f"{prefix}", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
+@bot.event
+async def on_ready():
+    print(f"logged in as {bot.user} [{bot.user.id}]")
+    print(f"prefix - {prefix}")
+    print(f"version - {version}")
+    print("------")
 
 # Commands
 
