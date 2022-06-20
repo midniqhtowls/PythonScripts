@@ -22,7 +22,7 @@ from discord.utils import get
 version = "1.0.0"
 username = "bot"
 prefix = "!"
-token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GHlGnk.vS5HIH4rthIXfrRVsrQpy2y04egGpipGjAjAFs"
+token = "token"
 
 bot = commands.Bot(command_prefix="!", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{username} - {version}" , case_insensitive=True, intents=discord.Intents.all()))
 
@@ -37,6 +37,18 @@ async def on_ready():
     print(f"version - {version}")
     print("------")
 
+# Error Handlers
+  
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        embed = discord.Embed(color=0x2F3136)
+        embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar)
+        embed.add_field(name="**failed**",value="command not found", inline=False)
+        embed.set_footer(text=f"{username} is currently at {version}")
+        await ctx.message.delete()
+        await ctx.send(embed=embed, delete_after=20.0)
+
 # Commands
   
 @bot.command()
@@ -47,5 +59,24 @@ async def help(ctx):
     embed.set_footer(text=f"{username} is currently at {version}")
     await ctx.message.delete()
     await ctx.send(embed=embed, delete_after=20.0)
+
+@bot.command()
+async def membercount(ctx):
+    embed = discord.Embed(color=0x2F3136)
+    guild = ctx.guild
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    embed.add_field(name=f"**membercount**",value=f"`{guild.member_count}` members", inline=False)
+    embed.set_footer(text=f"{username} is currently at {version}")
+    await ctx.message.delete()
+    await ctx.send(embed=embed, delete_after=20.0)
+
+@bot.command()
+async def embed(ctx, reason, content):
+        embed = discord.Embed(color=0x2F3136)
+        embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+        embed.add_field(name=content,value=reason)
+        embed.set_footer(text=f"{username} is currently at {version}")
+        await ctx.message.delete()
+        await ctx.send(embed=embed, delete_after=20.0)
 
 bot.run(token)
