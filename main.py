@@ -31,5 +31,14 @@ bot.remove_command('help')
 @bot.command()
 async def help(ctx):
   await ctx.send("loading help..")
+  
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(color=0x2F3136)
+    embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    embed.add_field(name=f"**!help**",value="shows the current message", inline=False)
+    embed.set_footer(text=f"{username} is currently at {version}")
+    await ctx.message.delete()
+    await ctx.send(embed=embed, delete_after=20.0)
 
 bot.run(token)
