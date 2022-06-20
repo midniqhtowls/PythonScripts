@@ -38,10 +38,6 @@ async def on_ready():
     print("------")
 
 # Commands
-
-@bot.command()
-async def help(ctx):
-  await ctx.send("loading help..")
   
 @bot.command()
 async def help(ctx):
