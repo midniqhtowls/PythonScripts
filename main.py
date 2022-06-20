@@ -17,6 +17,8 @@ from discord.ext.commands import Bot, has_permissions
 from discord import Embed
 from discord.utils import get
 
+# Variables 
+
 version = "1.0.0"
 username = "bot"
 prefix = "!"
