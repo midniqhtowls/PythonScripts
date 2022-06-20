@@ -22,7 +22,7 @@ from discord.utils import get
 version = "1.0.0"
 username = "bot"
 prefix = "!"
-token = "token"
+token = "OTY1OTY5Njg1Nzk3NTUyMTU4.GHlGnk.vS5HIH4rthIXfrRVsrQpy2y04egGpipGjAjAFs"
 
 bot.remove_command('help')
 
