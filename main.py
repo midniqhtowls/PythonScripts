@@ -19,7 +19,7 @@ from discord.utils import get
 
 # Variables, DO NOT CHANGE THE NAME OF ANYTHING, PLEASE ONLY CHANGE THE THINGS INSIDE OF THE ""
 
-version = "1.0.7" # not really important, just the footer of the embed and keeps track of the updates on the github, you'll have to keep checking the github for updates/bug fixes
+version = "1.2.7" # not really important, just the footer of the embed and keeps track of the updates on the github, you'll have to keep checking the github for updates/bug fixes
 prefix = "!" # sets the prefix, you can make it anything you want
 username = "username" # for embed only, you will have to set the actual bot username in your discord developer application
 status = "status" # sets the status, you can also make thing anything you want
