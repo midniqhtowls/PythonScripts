@@ -1,4 +1,4 @@
-# Imports
+# Imports, DO NOT REMOVE OR CHANGE ANYTHING!
 
 import discord
 import asyncio
@@ -17,25 +17,186 @@ from discord.ext.commands import Bot, has_permissions
 from discord import Embed
 from discord.utils import get
 
-# Variables 
+# Variables, DO NOT CHANGE THE NAME OF ANYTHING, PLEASE ONLY CHANGE THE THINGS INSIDE OF THE ""
 
-version = "1.0.6" # not really important, just the footer of the embed and keeps track of the updates on the github, you'll have to keep checking the github for updates/bug fixes
+version = "1.0.7" # not really important, just the footer of the embed and keeps track of the updates on the github, you'll have to keep checking the github for updates/bug fixes
 prefix = "!" # sets the prefix, you can make it anything you want
 username = "username" # for embed only, you will have to set the actual bot username in your discord developer application
-token = "token" # bots token, needed to run the bot
-status = "status" # sets the status, you can also make thing anything you want [inDev]
-statusType = "watching" # watching, playing, listening, streaming [inDev]
-onlineStatus = "online" # online, idle, do_not_disturb, offline [inDev]
+status = "status" # sets the status, you can also make thing anything you want
+status1 = "https://twitch.tv" # you dont have to fill this in if you are not using the streaming status
+token = "OTE0MTE2MDI3Mjg4MjY4ODYw.Gbxicm.i6k8d2AeE0U536bec-YGHEPbc_BalzYXdNniN8" # bots token, needed to run the bot
+CaseInsensitive = True # if this is true, it will be case insensitive which means if the command name is "!help", you can run it by typing it the normal way or in all caps like "!HELP" or "!hElP, if you make it False, you wont be able to run it by typing "!hElP"
 delete_after = True # set this to false if you dont want the bot to delete its own message after 20 seconds
 delete_ownMessage = True # set this to false if you dont want the bot to delete your own message after running the command
 
-# DO NOT CHANGE ANYTHING UNDER HERE IF YO DO NOT KNOW WHAT YOU ARE DOING!
+# if you want to change the things below, read https://github.com/midniqhtowls/PythonScripts/blob/main/varInfo.py
 
-intents = discord.Intents(messages=True, guilds=True)
-bot = commands.Bot(command_prefix=f"{prefix}", status=discord.Status.idle,activity=discord.Activity(type=discord.ActivityType.watching, name=f"{status}" , case_insensitive=True, intents=intents))
+bot = commands.Bot(
+    command_prefix=f"{prefix}", 
+    status=discord.Status.do_not_disturb,
+    activity=discord.Streaming(name=f"{status}", url=f"{status1}"),
+    case_insensitive=CaseInsensitive, 
+    intents=discord.Intents.all()
+)
+
 bot.remove_command('help')
 
-# Start up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# DO NOT CHANGE ANYTHING UNDER HERE IF YOU DO NOT KNOW WHAT YOU ARE DOING!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @bot.event
 async def on_ready():
@@ -43,8 +204,6 @@ async def on_ready():
     print(f"prefix - {prefix}")
     print(f"version - {version}")
     print("------")
-
-# Error Handlers
   
 @bot.event
 async def on_command_error(ctx, error):
@@ -56,11 +215,8 @@ async def on_command_error(ctx, error):
         if delete_after and delete_ownMessage == True:
             await ctx.send(embed=embed, delete_after=20.0)
             await ctx.message.delete()
-            await ctx.send(embed=embed)
         else:
             await ctx.send(embed=embed)
-
-# Commands
   
 @bot.command()
 async def help(ctx):
@@ -73,10 +229,11 @@ async def help(ctx):
     if delete_after and delete_ownMessage == True:
         await ctx.send(embed=embed, delete_after=20.0)
         await ctx.message.delete()
+    elif delete_ownMessage == True:
         await ctx.send(embed=embed)
-    else:
-        await ctx.send(embed=embed)
-
+        await ctx.message.delete()
+    elif delete_after == True:
+        await ctx.send(embed=embed, delete_after=20.0)
 @bot.command()
 async def membercount(ctx):
     embed = discord.Embed(color=0x2F3136)
@@ -87,20 +244,24 @@ async def membercount(ctx):
     if delete_after and delete_ownMessage == True:
         await ctx.send(embed=embed, delete_after=20.0)
         await ctx.message.delete()
+    elif delete_ownMessage == True:
         await ctx.send(embed=embed)
-    else:
-        await ctx.send(embed=embed)
+        await ctx.message.delete()
+    elif delete_after == True:
+        await ctx.send(embed=embed, delete_after=20.0)
 
 @bot.command()
 async def embed(ctx, content, reason):
-        embed = discord.Embed(color=0x2F3136)
-        embed.add_field(name=content,value=reason)
-        embed.set_footer(text=f"{username} is currently at {version}")
-        if delete_after and delete_ownMessage == True:
-            await ctx.send(embed=embed, delete_after=20.0)
-            await ctx.message.delete()
-            await ctx.send(embed=embed)
-        else:
-            await ctx.send(embed=embed)
+    embed = discord.Embed(color=0x2F3136)
+    embed.add_field(name=content,value=reason)
+    embed.set_footer(text=f"{username} is currently at {version}")
+    if delete_after and delete_ownMessage == True:
+        await ctx.send(embed=embed, delete_after=20.0)
+        await ctx.message.delete()
+    elif delete_ownMessage == True:
+        await ctx.send(embed=embed)
+        await ctx.message.delete()
+    elif delete_after == True:
+        await ctx.send(embed=embed, delete_after=20.0)
 
 bot.run(token)
