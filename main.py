@@ -25,7 +25,6 @@ username = "username" # for embed only, you will have to set the actual bot user
 status = "status" # sets the status, you can also make thing anything you want
 status1 = "https://twitch.tv" # you dont have to fill this in if you are not using the streaming status
 token = "token" # bots token, needed to run the bot
-CaseInsensitive = True # if this is true, it will be case insensitive which means if the command name is "!help", you can run it by typing it the normal way or in all caps like "!HELP" or "!hElP, if you make it False, you wont be able to run it by typing "!hElP"
 delete_after = True # set this to false if you dont want the bot to delete its own message after 20 seconds
 delete_ownMessage = True # set this to false if you dont want the bot to delete your own message after running the command
 
@@ -35,7 +34,7 @@ bot = commands.Bot(
     command_prefix=f"{prefix}", 
     status=discord.Status.do_not_disturb,
     activity=discord.Streaming(name=f"{status}", url=f"{status1}"),
-    case_insensitive=CaseInsensitive, 
+    case_insensitive=True, 
     intents=discord.Intents.all()
 )
 
