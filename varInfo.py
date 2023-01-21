@@ -1,5 +1,3 @@
-# DON'T FORGET TO ADD THE COMMA (,) BEHIND THE CODE IF THERE IS ONE! (the bot can error if its missing)
-
 # for status, change the blue thing behind discord.Status to the options in the comment below
 
 discord.Status.do_not_disturb, # sets do not disturb status
