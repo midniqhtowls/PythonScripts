@@ -1,4 +1,4 @@
-# Imports, DO NOT REMOVE OR CHANGE ANYTHING!
+# Imports
 
 import discord
 import asyncio
@@ -17,7 +17,7 @@ from discord.ext.commands import Bot, has_permissions
 from discord import Embed
 from discord.utils import get
 
-# Variables, DO NOT CHANGE THE NAME OF ANYTHING, PLEASE ONLY CHANGE THE THINGS INSIDE OF THE ""
+# Variables
 
 version = "1.2.7" # not really important, just the footer of the embed and keeps track of the updates on the github, you'll have to keep checking the github for updates/bug fixes
 prefix = "!" # sets the prefix, you can make it anything you want
